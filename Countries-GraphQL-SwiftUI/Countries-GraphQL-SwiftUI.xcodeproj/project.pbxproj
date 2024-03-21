@@ -11,6 +11,9 @@
 		A47B26702BAC8BBD0089089E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B266F2BAC8BBD0089089E /* ContentView.swift */; };
 		A47B26722BAC8BBF0089089E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47B26712BAC8BBF0089089E /* Assets.xcassets */; };
 		A47B26752BAC8BBF0089089E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47B26742BAC8BBF0089089E /* Preview Assets.xcassets */; };
+		A47B267C2BAC8BE30089089E /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B267B2BAC8BE30089089E /* Apollo.swift */; };
+		A47B267F2BAC8C020089089E /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A47B267E2BAC8C020089089E /* Queries.graphql */; };
+		A47B26812BAC8C290089089E /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A47B26802BAC8C290089089E /* schema.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		A47B266F2BAC8BBD0089089E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A47B26712BAC8BBF0089089E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47B26742BAC8BBF0089089E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A47B267B2BAC8BE30089089E /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		A47B267E2BAC8C020089089E /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		A47B26802BAC8C290089089E /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 		A47B266C2BAC8BBD0089089E /* Countries-GraphQL-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A47B267D2BAC8BE80089089E /* GraphQL */,
 				A47B266D2BAC8BBD0089089E /* Countries_GraphQL_SwiftUIApp.swift */,
 				A47B266F2BAC8BBD0089089E /* ContentView.swift */,
 				A47B26712BAC8BBF0089089E /* Assets.xcassets */,
@@ -65,6 +72,16 @@
 				A47B26742BAC8BBF0089089E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A47B267D2BAC8BE80089089E /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				A47B267B2BAC8BE30089089E /* Apollo.swift */,
+				A47B267E2BAC8C020089089E /* Queries.graphql */,
+				A47B26802BAC8C290089089E /* schema.json */,
+			);
+			path = GraphQL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47B26812BAC8C290089089E /* schema.json in Resources */,
+				A47B267F2BAC8C020089089E /* Queries.graphql in Resources */,
 				A47B26752BAC8BBF0089089E /* Preview Assets.xcassets in Resources */,
 				A47B26722BAC8BBF0089089E /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A47B26702BAC8BBD0089089E /* ContentView.swift in Sources */,
+				A47B267C2BAC8BE30089089E /* Apollo.swift in Sources */,
 				A47B266E2BAC8BBD0089089E /* Countries_GraphQL_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
