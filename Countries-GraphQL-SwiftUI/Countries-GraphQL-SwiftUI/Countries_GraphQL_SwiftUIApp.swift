@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Apollo
 
 @main
 struct Countries_GraphQL_SwiftUIApp: App {
+    let apolloClient = ApolloClient(url: Constants.url.value as! URL)
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = HomeViewViewModel(client: apolloClient)
+            HomeView(viewModel: viewModel)
         }
     }
 }
