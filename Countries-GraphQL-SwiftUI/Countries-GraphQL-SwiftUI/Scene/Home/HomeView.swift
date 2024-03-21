@@ -15,12 +15,7 @@ struct HomeView: View {
         NavigationView {
             List(viewModel.countries, id: \.code) { country in
                 NavigationLink {
-                    CountryDetailView(
-                        viewModel: CountryDetailViewViewModel(
-                            client: viewModel.client,
-                            country: country
-                        )
-                    )
+                    CountryDetailFactory.make(client: viewModel.client, country: country)
                 } label: {
                     HStack {
                         Text(country.emoji)

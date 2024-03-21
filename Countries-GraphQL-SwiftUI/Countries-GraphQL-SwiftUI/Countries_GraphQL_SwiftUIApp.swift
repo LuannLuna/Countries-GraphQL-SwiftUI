@@ -14,8 +14,7 @@ struct Countries_GraphQL_SwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let viewModel = HomeViewViewModel(client: apolloClient)
-            HomeView(viewModel: viewModel)
+            HomeFactory.make(client: apolloClient)
         }
     }
 }
