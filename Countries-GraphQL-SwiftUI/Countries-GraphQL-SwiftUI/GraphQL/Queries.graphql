@@ -7,3 +7,15 @@ query GetAllContries {
     emoji
   }
 }
+
+
+query GetCountryInfo($code: ID!) {
+    contry(code: $code) {
+        name
+        capital
+        emoji
+        states {
+            name
+        }
+    }
+}

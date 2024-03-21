@@ -13,13 +13,22 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+            List(viewModel.countries, id: \.code) { country in
+                NavigationLink {
+                    CountryDetailView(
+                        viewModel: CountryDetailViewViewModel(
+                            client: viewModel.client,
+                            country: country
+                        )
+                    )
+                } label: {
+                    HStack {
+                        Text(country.emoji)
+                        Text(country.name)
+                    }
+                }
             }
-            .padding()
+            .listStyle(PlainListStyle())
             .onAppear {
                 viewModel.loadAllContries()
             }
