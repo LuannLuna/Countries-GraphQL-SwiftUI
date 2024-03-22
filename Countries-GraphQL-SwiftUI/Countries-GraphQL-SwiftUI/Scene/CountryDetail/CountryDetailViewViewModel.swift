@@ -8,12 +8,32 @@
 import Apollo
 import SwiftUI
 
+struct CountryInfoViewModel {
+    private let info: CountryInfo
+
+    init(info: CountryInfo) {
+        self.info = info
+    }
+
+    var name: String {
+        info.name
+    }
+
+    var capital: String {
+        info.capital ?? ""
+    }
+
+    var states: [String] {
+        info.states.map(\.name)
+    }
+}
+
 final class CountryDetailViewViewModel: ObservableObject {
     private let client: ApolloClientProtocol
-    private let country: Country
-    @Published var info: CountryInfo?
+    private let country: CountryViewModel
+    @Published var info: CountryInfoViewModel?
 
-    init(client: ApolloClientProtocol, country: Country) {
+    init(client: ApolloClientProtocol, country: CountryViewModel) {
         self.client = client
         self.country = country
     }
@@ -27,7 +47,8 @@ final class CountryDetailViewViewModel: ObservableObject {
                 switch  result {
                 case let .success(graphqlResult):
                     DispatchQueue.main.async { [weak self] in
-                        self?.info = graphqlResult.data?.country
+                        guard let country = graphqlResult.data?.country else { return }
+                        self?.info = CountryInfoViewModel(info: country)
                     }
                 case let .failure(error):
                     print(error.localizedDescription)

@@ -15,9 +15,10 @@ struct CountryDetailView: View {
         VStack {
             Text(viewModel.info?.name ?? "")
             Text(viewModel.info?.capital ?? "")
-            List(viewModel.info?.states ?? [], id: \.name) { state in
-                Text(state.name)
+            List(viewModel.info?.states ?? [], id: \.self) {
+                Text($0)
             }
+            Spacer()
         }.onAppear {
             viewModel.loadCountryInfo()
         }
@@ -29,10 +30,12 @@ struct CountryDetailView: View {
     return CountryDetailView(
         viewModel: CountryDetailViewViewModel(
             client: client,
-            country: Country(
-                code: "US",
-                name: "United States",
-                emoji: ""
+            country: CountryViewModel(
+                country: Country(
+                    code: "US",
+                    name: "United States",
+                    emoji: ""
+                )
             )
         )
     )

@@ -8,10 +8,30 @@
 import Apollo
 import SwiftUI
 
+struct CountryViewModel {
+    private let country: Country
+
+    init(country: Country) {
+        self.country = country
+    }
+
+    var code: GraphQLID {
+        country.code
+    }
+
+    var name: String {
+        country.name
+    }
+
+    var flag: String {
+        country.emoji
+    }
+}
+
 final class HomeViewViewModel: ObservableObject {
     let client: ApolloClientProtocol
 
-    @Published var countries = Countries()
+    @Published var countries = [CountryViewModel]()
 
     init(client: ApolloClientProtocol) {
         self.client = client
@@ -28,7 +48,9 @@ final class HomeViewViewModel: ObservableObject {
                 case let .success(graphqlResult):
                     if let countries = graphqlResult.data?.countries {
                         DispatchQueue.main.async { [weak self] in
-                            self?.countries = countries
+                            self?.countries = countries.map {
+                                CountryViewModel(country: $0)
+                            }
                         }
                     }
                 case let .failure(error):

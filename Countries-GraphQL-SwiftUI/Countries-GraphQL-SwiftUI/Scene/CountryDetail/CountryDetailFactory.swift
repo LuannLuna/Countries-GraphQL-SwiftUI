@@ -9,7 +9,7 @@ import Apollo
 import SwiftUI
 
 enum CountryDetailFactory {
-    static func make(client: ApolloClientProtocol, country: Country) -> CountryDetailView {
+    static func make(client: ApolloClientProtocol, country: CountryViewModel) -> CountryDetailView {
         let viewModel = CountryDetailViewViewModel(client: client, country: country)
         return CountryDetailView(viewModel: viewModel)
     }

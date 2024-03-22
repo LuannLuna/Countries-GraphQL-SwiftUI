@@ -18,7 +18,7 @@ struct HomeView: View {
                     CountryDetailFactory.make(client: viewModel.client, country: country)
                 } label: {
                     HStack {
-                        Text(country.emoji)
+                        Text(country.flag)
                         Text(country.name)
                     }
                 }
